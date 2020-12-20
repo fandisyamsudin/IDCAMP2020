@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Movie App</string>
+    <string name="home">Home</string>
+    <string name="tab_movie">Movie</string>
+    <string name="tab_tvshow">TVShow</string>
+    <string name="poster">poster</string>
+    <string name="score">score</string>
+    <string name="init_score">82%</string>
+    <string name="duration">duration</string>
+    <string name="init_duration">1j 20m</string>
+    <string name="release">release</string>
+    <string name="init_release">20 Jan 1999</string>
+    <string name="description">Overview</string>
+    <string name="init_description">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="share">share</string>
+    <string name="detail">Detail</string>
+    <string name="share_action">Share :</string>
+    <string name="favorite">Favorite</string>
+    <string name="add_favorite">Favorite</string>
+    <string name="remove_favorite">Remove from favorite</string>
+    <string name="time_out">Time Out</string>
+    <string name="time_out_message">Try Again</string>
+    <string name="empty_favorite">List Favorite is Empty</string>
+    <string name="favorite_message">List Favorite will be show in here</string>
+    <string name="connection">Your Connection is Offline</string>
+</resources>

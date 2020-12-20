@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_title_widget"
+        style="@style/TextContent.Title.White.Bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="6dp"
+        android:textAlignment="center"
+        tools:text="@string/favorite" />
+
+    <StackView
+        android:id="@+id/stack_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_title_widget"
+        tools:listitem="@layout/favorite_widget_item" />
+
+    <LinearLayout
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tv_title_widget"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_info"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/sorry"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_init_search"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_tittle"
+            style="@style/TextContent.Title.bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/sorry" />
+
+        <TextView
+            android:id="@+id/tv_message"
+            style="@style/TextContent.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/init_message_error" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Favorite App</string>
+    <string name="change_language_settings">Change language</string>
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
+    <string name="profile">Profile</string>
+    <string name="iv_back">Back</string>
+    <string name="iv_avatar">Avatar</string>
+    <string name="init_search_info">Find User github!!!</string>
+    <string name="init_search_message">User github will show in here</string>
+    <string name="not_found_search">The result is empty </string>
+    <string name="init_title_error">Sorry</string>
+    <string name="init_message_error">Check internet connection!!!</string>
+    <string name="not_found_followers">does not have followers</string>
+    <string name="not_found_following">does not have following</string>
+    <string name="subtitle_splash">By Fandi Syamsudin</string>
+    <string name="title_splash">Welcome</string>
+    <string name="go_detail">"Detail of "</string>
+    <string name="share_action">Share</string>
+    <string name="title_error">Sorry</string>
+    <string name="favorite">Favorite</string>
+    <string name="not_found_favorite">does not have favorite</string>
+</resources>

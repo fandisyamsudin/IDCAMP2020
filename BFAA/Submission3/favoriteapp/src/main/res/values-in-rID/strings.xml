@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Favorite App</string>
+    <string name="change_language_settings">Ubah bahasa</string>
+    <string name="follower">Pengikut</string>
+    <string name="following">Mengikuti</string>
+    <string name="profile">Profil</string>
+    <string name="iv_back">kembali</string>
+    <string name="iv_avatar">Avatar</string>
+    <string name="init_search_info">Temukan Pengguna Github !!!</string>
+    <string name="init_search_message">Pengguna github akan ada disini</string>
+    <string name="not_found_search">Pengguna tidak ditemukan</string>
+    <string name="init_title_error">404</string>
+    <string name="init_message_error">Periksa sambungan internet!!!</string>
+    <string name="not_found_followers">Tidak memiliki pengikut</string>
+    <string name="not_found_following">Tidak mengikuti siapapun</string>
+    <string name="subtitle_splash">Oleh Fandi Syamsudin</string>
+    <string name="title_splash">Selamat Datang</string>
+    <string name="go_detail">"Detail"</string>
+    <string name="share_action">Bagikan</string>
+    <string name="title_error">Gangguan</string>
+    <string name="favorite">Favorit</string>
+    <string name="not_found_favorite">Tidak memiliki favorite</string>
+</resources>

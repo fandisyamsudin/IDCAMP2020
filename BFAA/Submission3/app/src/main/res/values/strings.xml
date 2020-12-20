@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Github App</string>
+    <string name="search_user">Home</string>
+    <string name="search">Search</string>
+    <string name="iv_search">iv Search</string>
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
+    <string name="profile">Profile</string>
+    <string name="iv_back">Back</string>
+    <string name="iv_avatar">Avatar</string>
+    <string name="init_search_info">Find User github!!!</string>
+    <string name="init_search_message">User github will show in here</string>
+    <string name="not_found_search">The result is empty </string>
+    <string name="init_title_error">404</string>
+    <string name="init_message_error">Check internet connection!!!</string>
+    <string name="not_found_followers">does not have followers</string>
+    <string name="not_found_following">does not have following</string>
+    <string name="subtitle_splash">By Fandi Syamsudin</string>
+    <string name="title_splash">Welcome</string>
+    <string name="go_detail">"Detail of "</string>
+    <string name="share_action">Share</string>
+    <string name="setting">Setting</string>
+    <string name="favorite">Favorite</string>
+    <string name="language">Language</string>
+    <string name="iv_next">next</string>
+    <string name="reminder">Alarm Reminder</string>
+    <string name="on_reminder">Turn on daily reminder</string>
+    <string name="off_reminder">Turn off daily reminder</string>
+    <string name="message">Let\'s go to find peer programming !!!</string>
+    <string name="not_found_favorite">does not have favorite</string>
+    <string name="add_to_favorite">Add to Favorite</string>
+    <string name="delete_to_favorite">Delete from favorite</string>
+    <string name="sorry">Sorry</string>
+</resources>

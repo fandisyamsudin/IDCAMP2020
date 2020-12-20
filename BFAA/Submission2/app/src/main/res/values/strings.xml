@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">User Github</string>
+    <string name="search_user">Home</string>
+    <string name="search">Search</string>
+    <string name="change_language_settings">Change language</string>
+    <string name="iv_search">iv Search</string>
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
+    <string name="profile">Profile</string>
+    <string name="iv_back">Back</string>
+    <string name="iv_avatar">Avatar</string>
+    <string name="init_search_info">Find User github!!!</string>
+    <string name="init_search_message">User github will show in here</string>
+    <string name="not_found_search">User Note Found</string>
+    <string name="init_title_error">404</string>
+    <string name="init_message_error">Check internet connection!!!</string>
+    <string name="not_found_followers">has no followers</string>
+    <string name="not_found_following">has no following</string>
+    <string name="subtitle_splash">By Fandi Syamsudin</string>
+    <string name="title_splash">Welcome</string>
+    <string name="go_detail">"Detail of "</string>
+    <string name="share_action">Share</string>
+    <string name="title_error">Error</string>
+    <string name="not_found">Not Found</string>
+</resources>
