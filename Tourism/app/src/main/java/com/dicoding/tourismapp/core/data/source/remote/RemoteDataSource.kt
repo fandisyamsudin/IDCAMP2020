@@ -1,5 +1,6 @@
 package com.dicoding.tourismapp.core.data.source.remote
 
+import android.annotation.SuppressLint
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
@@ -14,12 +15,20 @@ import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.annotations.SchedulerSupport.IO
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import okhttp3.Dispatcher
 import org.json.JSONException
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 
 class RemoteDataSource private constructor(private val apiService: ApiService) {
     companion object {
@@ -32,22 +41,23 @@ class RemoteDataSource private constructor(private val apiService: ApiService) {
             }
     }
 
-    fun getAllTourism(): Flowable<ApiResponse<List<TourismResponse>>> {
-        val resultData = PublishSubject.create<ApiResponse<List<TourismResponse>>>()
+    @SuppressLint("CheckResult")
+    suspend fun getAllTourism(): Flow<ApiResponse<List<TourismResponse>>> {
+       return flow {
+           try {
+               val response = apiService.getList()
+               val dataArray = response.places
+               if (dataArray.isNotEmpty()){
+                   emit(ApiResponse.Success(dataArray))
+               } else {
+                   emit(ApiResponse.Empty)
+               }
 
-        val client = apiService.getList()
-        client
-            .subscribeOn(Schedulers.computation())
-            .observeOn(AndroidSchedulers.mainThread())
-            .take(1)
-            .subscribe({ response ->
-                val dataArray = response.places
-                resultData.onNext(if (dataArray.isNotEmpty()) ApiResponse.Success(dataArray) else ApiResponse.Empty)
-            }, { error ->
-                resultData.onNext(ApiResponse.Error(error.message.toString()))
-                Log.e("RemoteDataSource", error.toString())
-            })
-        return resultData.toFlowable(BackpressureStrategy.BUFFER)
+           } catch (e:Exception){
+               emit(ApiResponse.Error(e.toString()))
+               Log.e("RemoteDataSource", e.toString())
+           }
+       }.flowOn(Dispatchers.IO)
     }
 }
 
