@@ -1,12 +1,13 @@
 package com.dicoding.tourismapp.core.data.source.local
 
-import androidx.lifecycle.LiveData
 import com.dicoding.tourismapp.core.data.source.local.entity.TourismEntity
 import com.dicoding.tourismapp.core.data.source.local.room.TourismDao
-import io.reactivex.Flowable
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class LocalDataSource(private val tourismDao: TourismDao) {
+@Singleton
+class LocalDataSource @Inject constructor(private val tourismDao: TourismDao) {
 
 
     fun getAllTourism(): Flow<List<TourismEntity>> = tourismDao.getAllTourism()
