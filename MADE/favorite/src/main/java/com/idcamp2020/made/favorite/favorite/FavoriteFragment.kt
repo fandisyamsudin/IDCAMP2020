@@ -1,4 +1,4 @@
-package com.idcamp2020.made.ui.favorite
+package com.idcamp2020.made.favorite.favorite
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.idcamp2020.made.R
+
 
 class FavoriteFragment : Fragment() {
 

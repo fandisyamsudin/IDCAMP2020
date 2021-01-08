@@ -1,4 +1,4 @@
-package com.idcamp2020.made.ui.favorite
+package com.idcamp2020.made.favorite.favorite
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
