@@ -1,0 +1,71 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MADE" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/dark_primary</item>
+        <item name="colorOnPrimary">@color/light_primary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondary_yellow</item>
+        <item name="colorSecondaryVariant">@color/black</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.MADE.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MADE.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MADE.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TextContent" parent="@style/TextAppearance.AppCompat">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+    </style>
+
+    <style name="TextContent.Title">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/hymala</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/dark_primary</item>
+    </style>
+
+    <style name="TextContent.Title.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextContent.Title.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextContent.Title.Yellow">
+        <item name="android:textColor">@color/secondary_yellow</item>
+    </style>
+
+    <style name="TextContent.Subtitle">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/hymala</item>
+        <item name="android:textColor">@color/dark_primary</item>
+    </style>
+
+    <style name="TextContent.Subtitle.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextContent.Subtitle.Black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextContent.Subtitle.Yellow">
+        <item name="android:textColor">@color/secondary_yellow</item>
+    </style>
+
+</resources>

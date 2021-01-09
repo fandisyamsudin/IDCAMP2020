@@ -13,7 +13,9 @@
     <string name="menu_favorite">Favorite</string>
     <string name="action_search">Search</string>
     <string name="title_favorite">Module Title</string>
-    <string name="error">error</string>
-    <string name="error_connection">Error Connection</string>
-    <string name="detail">Detail</string>
+    <string name="poster">poster</string>
+    <string name="title">The Crimes of Grindelwand</string>
+    <string name="release">20-12-2002</string>
+    <string name="vote">8.8</string>
+    <string name="background_text">backgroun text</string>
 </resources>

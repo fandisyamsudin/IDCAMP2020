@@ -23,10 +23,6 @@ class FavoriteFragment : Fragment() {
         galleryViewModel =
                 ViewModelProvider(this).get(FavoriteViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_favorite, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
-        galleryViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
         return root
     }
 }

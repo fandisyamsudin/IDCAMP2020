@@ -22,4 +22,9 @@
         android:name="com.idcamp2020.made.ui.setting.SettingFragment"
         android:label="@string/action_settings"
         tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/nav_detail"
+        android:name="com.idcamp2020.made.ui.detail.DetailFragment"
+        android:label="@string/detail"
+        tools:layout="@layout/detail_fragment" />
 </navigation>
