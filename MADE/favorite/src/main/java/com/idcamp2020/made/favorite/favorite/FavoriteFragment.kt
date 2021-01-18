@@ -20,8 +20,6 @@ class FavoriteFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        galleryViewModel =
-                ViewModelProvider(this).get(FavoriteViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_favorite, container, false)
         return root
     }

@@ -10,7 +10,7 @@ data class Movie(
         val title: String? = "",
         val releaseDate: String? = "",
         val overview: String? = "",
-        val poster: String? = "",
-        val backdrop: String? = "",
-        val isFavorite: Boolean = false
+        val posterPath: String? = "",
+        val backdropPath: String? = "",
+        var isFavorite: Boolean = false
 ): Parcelable

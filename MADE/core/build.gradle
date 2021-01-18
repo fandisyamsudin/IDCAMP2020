@@ -19,6 +19,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        buildConfigField 'String', 'BASE_URL', "\"https://api.themoviedb.org/3/\""
+        buildConfigField 'String', 'IMAGE_URL', "\"https://image.tmdb.org/t/p/w500\""
+        buildConfigField 'String', 'API_KEY', "\"992c6b183be7e0d5df08ea4b98d18f2c\""
     }
 
     buildTypes {

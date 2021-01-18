@@ -1,7 +1,8 @@
 package com.idcamp2020.made.ui.detail
 
 import androidx.lifecycle.ViewModel
+import com.idcamp2020.made.core.domain.usecase.MovieUseCase
 
-class DetailViewModel : ViewModel() {
+class DetailViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
     // TODO: Implement the ViewModel
 }
