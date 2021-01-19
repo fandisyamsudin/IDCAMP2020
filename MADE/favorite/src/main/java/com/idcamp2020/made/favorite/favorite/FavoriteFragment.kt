@@ -8,19 +8,99 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.idcamp2020.made.core.data.Resource
+import com.idcamp2020.made.core.domain.model.Movie
+import com.idcamp2020.made.core.ui.MovieAdapter
+import com.idcamp2020.made.core.utils.SortUtils
 import com.idcamp2020.made.favorite.R
+import com.idcamp2020.made.favorite.databinding.FragmentFavoriteBinding
+import com.idcamp2020.made.favorite.di.favoriteModule
+import com.idcamp2020.made.ui.detail.DetailFragment
+import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 
 
 class FavoriteFragment : Fragment() {
 
-    private lateinit var galleryViewModel: FavoriteViewModel
+    private var _fragmentFavoriteBinding: FragmentFavoriteBinding? = null
+    private val binding get() = _fragmentFavoriteBinding
+    private lateinit var movieAdapter: MovieAdapter
+    private val favoriteViewModel: FavoriteViewModel by viewModel()
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_favorite, container, false)
-        return root
+        _fragmentFavoriteBinding = FragmentFavoriteBinding.inflate(inflater, container, false)
+        return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        loadKoinModules(favoriteModule)
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView() {
+        movieAdapter = MovieAdapter()
+        favoriteViewModel.getMovieFavorite(SortUtils.RANDOM).observe(viewLifecycleOwner, showLayoutObserver)
+
+        binding?.rvFavorite?.apply {
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
+            adapter = movieAdapter
+        }
+
+        // Masih Error di sini !!!
+         movieAdapter.onItemClick = {selectedData ->
+            val mBundle = Bundle()
+            mBundle.putParcelable(DetailFragment.EXTRA_MOVIE, selectedData)
+            view?.findNavController()?.navigate(R.id.action_favoriteFragment_to_detailFragment, mBundle)
+        }
+    }
+
+    private val showLayoutObserver = Observer<List<Movie>> {
+        if (it != null) {
+            showProgressBar()
+            showError(false)
+            showRecyclerView(true)
+            movieAdapter.apply {
+                setData(it)
+                notifyDataSetChanged()
+            }
+        } else {
+            showProgressBar()
+            showError(true)
+            showRecyclerView(false)
+        }
+    }
+
+    private fun showError(state: Boolean){
+        if (state){
+            binding?.empty?.main?.visibility = View.VISIBLE
+        } else {
+            binding?.empty?.main?.visibility = View.GONE
+        }
+    }
+
+    private fun showProgressBar(){
+        binding?.pbFavorite?.visibility = View.GONE
+    }
+
+    private fun showRecyclerView(state: Boolean){
+        if (state){
+            binding?.rvFavorite?.visibility = View.VISIBLE
+        } else {
+            binding?.rvFavorite?.visibility = View.GONE
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _fragmentFavoriteBinding = null
     }
 }

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.idcamp2020.made.R
 import com.idcamp2020.made.core.BuildConfig
@@ -65,6 +66,38 @@ class DetailFragment : Fragment() {
                     .load(BuildConfig.IMAGE_URL + movie.backdropPath)
                     .dontTransform()
                     .into(ivBackdropDetail)
+
+            setFavoriteStatus(movie.isFavorite)
+
+            binding?.btnFavorite?.setOnClickListener {
+                movie.isFavorite = !movie.isFavorite
+                detailViewodel.setMovieFavorite(movie, movie.isFavorite)
+                setFavoriteStatus(movie.isFavorite)
+            }
+        }
+    }
+
+    private fun setFavoriteStatus(status: Boolean) {
+        if (status){
+            if (status) {
+                binding?.btnFavorite?.setImageDrawable(
+                    context?.let {
+                        ContextCompat.getDrawable(
+                            it,
+                            R.drawable.ic_favorite
+                        )
+                    }
+                )
+            } else {
+                binding?.btnFavorite?.setImageDrawable(
+                    context?.let {
+                        ContextCompat.getDrawable(
+                            it,
+                            R.drawable.ic_baseline_favorite_border
+                        )
+                    }
+                )
+            }
         }
     }
 }
