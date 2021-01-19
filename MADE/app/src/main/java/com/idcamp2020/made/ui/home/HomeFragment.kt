@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.idcamp2020.made.R
 import com.idcamp2020.made.core.data.Resource
 import com.idcamp2020.made.core.domain.model.Movie
 import com.idcamp2020.made.core.ui.MovieAdapter
 import com.idcamp2020.made.core.utils.SortUtils
 import com.idcamp2020.made.databinding.FragmentHomeBinding
+import com.idcamp2020.made.ui.detail.DetailFragment.Companion.EXTRA_MOVIE
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -47,6 +50,12 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = movieAdapter
+        }
+
+        movieAdapter.onItemClick = {selectedData ->
+            val mBundle = Bundle()
+            mBundle.putParcelable(EXTRA_MOVIE, selectedData)
+            view?.findNavController()?.navigate(R.id.action_nav_home_to_nav_detail, mBundle)
         }
     }
 
