@@ -67,37 +67,36 @@ class DetailFragment : Fragment() {
                     .dontTransform()
                     .into(ivBackdropDetail)
 
-            setFavoriteStatus(movie.isFavorite)
+            var favoriteState = movie.isFavorite
+            setFavoriteStatus(favoriteState)
 
             binding?.btnFavorite?.setOnClickListener {
-                movie.isFavorite = !movie.isFavorite
-                detailViewodel.setMovieFavorite(movie, movie.isFavorite)
-                setFavoriteStatus(movie.isFavorite)
+                favoriteState = !favoriteState
+                detailViewodel.setMovieFavorite(movie, favoriteState)
+                setFavoriteStatus(favoriteState)
             }
         }
     }
 
     private fun setFavoriteStatus(status: Boolean) {
         if (status){
-            if (status) {
-                binding?.btnFavorite?.setImageDrawable(
-                    context?.let {
-                        ContextCompat.getDrawable(
-                            it,
-                            R.drawable.ic_favorite
+            binding?.btnFavorite?.setImageDrawable(
+                context?.let {
+                    ContextCompat.getDrawable(
+                        it,
+                        R.drawable.ic_favorite
                         )
                     }
                 )
-            } else {
-                binding?.btnFavorite?.setImageDrawable(
-                    context?.let {
-                        ContextCompat.getDrawable(
-                            it,
-                            R.drawable.ic_baseline_favorite_border
+        } else {
+            binding?.btnFavorite?.setImageDrawable(
+                context?.let {
+                    ContextCompat.getDrawable(
+                        it,
+                        R.drawable.ic_baseline_favorite_border
                         )
-                    }
-                )
-            }
+                }
+            )
         }
     }
 }
