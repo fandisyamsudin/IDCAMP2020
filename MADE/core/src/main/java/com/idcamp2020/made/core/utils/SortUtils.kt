@@ -9,16 +9,13 @@ object SortUtils {
     const val RANDOM = "Random"
 
     fun getSortedMovie(query: String): SimpleSQLiteQuery {
-        val sorted = StringBuilder().append("SELECT * FROM table_favorite")
+        val sorted = StringBuilder().append("SELECT * FROM table_favorite where is_favorite = 0 ")
         when (query) {
-            POPULARITY -> {
-                sorted.append("ORDER BY popularity DESC")
-            }
             NEWEST -> {
-                sorted.append("ORDER BY releaseDate DESC")
+                sorted.append("ORDER BY release_date DESC")
             }
             VOTE -> {
-                sorted.append("ORDER BY voteAverage DESC")
+                sorted.append("ORDER BY vote_average DESC")
             }
             RANDOM -> {
                 sorted.append("ORDER BY RANDOM()")
@@ -28,11 +25,9 @@ object SortUtils {
     }
 
     fun getSortedMovieFavorite(query: String): SimpleSQLiteQuery {
-        val sorted = StringBuilder().append("SELECT * FROM table_favorite where is_favorite = 1")
+        val sorted = StringBuilder().append("SELECT * FROM table_favorite where is_favorite = 1 ")
         when (query) {
-            POPULARITY -> {
-                sorted.append("ORDER BY popularity DESC")
-            }
+
             NEWEST -> {
                 sorted.append("ORDER BY releaseDate DESC")
             }
