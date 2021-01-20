@@ -1,13 +1,19 @@
 package com.idcamp2020.made.ui.home
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.view.iterator
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.idcamp2020.made.MainActivity
 import com.idcamp2020.made.R
 import com.idcamp2020.made.core.data.Resource
 import com.idcamp2020.made.core.domain.model.Movie
@@ -15,13 +21,19 @@ import com.idcamp2020.made.core.ui.MovieAdapter
 import com.idcamp2020.made.core.utils.SortUtils
 import com.idcamp2020.made.databinding.FragmentHomeBinding
 import com.idcamp2020.made.ui.detail.DetailFragment.Companion.EXTRA_MOVIE
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import org.koin.android.viewmodel.ext.android.viewModel
 
+@FlowPreview
 class HomeFragment : Fragment() {
     private var _fragmentHomeBinding: FragmentHomeBinding? = null
     private val binding get() = _fragmentHomeBinding
     private val homeViewModel: HomeViewModel by viewModel()
     private lateinit var movieAdapter: MovieAdapter
+    private lateinit var searchView: SearchView
+    @FlowPreview
+    private val searchViewModel: SearchViewModel by viewModel()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -29,12 +41,53 @@ class HomeFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         _fragmentHomeBinding = FragmentHomeBinding.inflate(inflater, container, false)
+        val toolbar: Toolbar = activity?.findViewById<View>(R.id.toolbar) as Toolbar
+        (activity as AppCompatActivity?)?.setSupportActionBar(toolbar)
+        setHasOptionsMenu(true)
+        searchView = (activity as MainActivity).findViewById(R.id.search_view)
         return binding?.root
     }
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+
+    }
+
+    @ExperimentalCoroutinesApi
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main, menu)
+        searchView = menu.findItem(R.id.action_search).actionView as SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let {
+                    searchViewModel.setQuerySearch(it)
+                }
+                return true
+            }
+        })
+    }
+
+    @ExperimentalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
+        initSearchRecyclerView()
+    }
+
+    @ExperimentalCoroutinesApi
+    private fun initSearchRecyclerView() {
+        searchViewModel.resultSearch.observe(viewLifecycleOwner, {
+            movieAdapter.apply {
+                setData(it)
+                notifyDataSetChanged()
+            }
+        })
     }
 
     override fun onDestroy() {

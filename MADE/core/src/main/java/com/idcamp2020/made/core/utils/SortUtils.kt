@@ -7,7 +7,7 @@ object SortUtils {
     const val RANDOM = "Random"
 
     fun getSortedMovie(query: String): SimpleSQLiteQuery {
-        val sorted = StringBuilder().append("SELECT * FROM table_favorite where is_favorite = 0 ")
+        val sorted = StringBuilder().append("SELECT * FROM table_favorite ")
         when (query) {
             NEWEST -> {
                 sorted.append("ORDER BY release_date DESC")
