@@ -30,4 +30,6 @@
         Duis tempor ipsum in sem aliquam, id vestibulum odio imperdiet. Curabitur condimentum sem lacus, nec mattis diam pharetra nec.
         Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In ac erat at lorem mattis varius. Etiam eu risus metus.
     </string>
+    <string name="subtitle_splash">By Fandi Syamsudin</string>
+    <string name="title_splash">Welcome Guys</string>
 </resources>
