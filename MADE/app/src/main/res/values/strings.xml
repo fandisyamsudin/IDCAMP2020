@@ -32,4 +32,6 @@
     </string>
     <string name="subtitle_splash">By Fandi Syamsudin</string>
     <string name="title_splash">Welcome Guys</string>
+    <string name="removed">Removed</string>
+    <string name="add_favorite">Add to Favorite</string>
 </resources>

@@ -38,7 +38,7 @@ object DataMapper {
         }
     }
 
-    fun mapDomainToEntity(input: Movie): MovieEntity{
+    fun mapDomainToEntity(input: Movie): MovieEntity {
         return MovieEntity(
             input.id,
             input.voteAverage,

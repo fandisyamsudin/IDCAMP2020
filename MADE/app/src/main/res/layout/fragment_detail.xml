@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -80,52 +79,53 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </FrameLayout>
         </androidx.cardview.widget.CardView>
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/iv_poster_detail"
-                android:layout_width="115dp"
-                android:layout_height="180dp"
-                android:layout_margin="16dp"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/poster"
-                android:elevation="10dp"
-                android:src="@drawable/poster_crimes"
-                app:layout_constraintBottom_toBottomOf="@+id/cv_detail"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cv_detail"
-                app:riv_corner_radius="8dp" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/btn_favorite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:backgroundTint="@color/secondary_yellow"
-                android:src="@drawable/ic_baseline_favorite_border"
-                android:contentDescription="@string/favorite"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cv_detail" />
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_poster_detail"
+            android:layout_width="115dp"
+            android:layout_height="180dp"
+            android:layout_margin="16dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/poster"
+            android:elevation="10dp"
+            android:src="@drawable/poster_crimes"
+            app:layout_constraintBottom_toBottomOf="@+id/cv_detail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_detail"
+            app:riv_corner_radius="8dp" />
 
-            <TextView
-                android:id="@+id/tv_title_overview_detail"
-                style="@style/TextContent.Title.White"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="@string/overview"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_poster_detail" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/secondary_yellow"
+            android:src="@drawable/ic_baseline_favorite_border"
+            android:contentDescription="@string/favorite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_detail" />
 
-            <TextView
-                android:id="@+id/tv_overview_detail"
-                style="@style/TextContent.Subtitle.White"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="@string/dummy_overview"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_title_overview_detail" />
+        <TextView
+            android:id="@+id/tv_title_overview_detail"
+            style="@style/TextContent.Title.White"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/overview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_poster_detail" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_overview_detail"
+            style="@style/TextContent.Subtitle.White"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/dummy_overview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_overview_detail" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

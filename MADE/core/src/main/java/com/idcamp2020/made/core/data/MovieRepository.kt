@@ -17,7 +17,7 @@ class MovieRepository(
     private val appExecutors: AppExecutors
 ) : IMovieRepository {
     override fun getMovie(query: String): Flow<Resource<List<Movie>>> =
-        object : NetworkBoundResource<List<Movie>, List<MovieResponse>>(){
+        object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
             override fun loadFromDB(): Flow<List<Movie>> {
                 return localDataSource.getAllMovie(query).map {
                     DataMapper.mapEntitiesToDomain(it)
@@ -45,9 +45,9 @@ class MovieRepository(
     }
 
     override fun getMovieSearch(query: String): Flow<List<Movie>> {
-       return localDataSource.getMovieSearch(query).map {
-           DataMapper.mapEntitiesToDomain(it)
-       }
+        return localDataSource.getMovieSearch(query).map {
+            DataMapper.mapEntitiesToDomain(it)
+        }
     }
 
     override fun setMovieFavorite(movie: Movie, state: Boolean) {

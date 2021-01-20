@@ -9,7 +9,7 @@ import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.*
 
 @FlowPreview
-class SearchViewModel(private val movieUseCase: MovieUseCase): ViewModel() {
+class SearchViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
     @ExperimentalCoroutinesApi
     private val queryBroadcastChannel = ConflatedBroadcastChannel<String>()
 
@@ -20,12 +20,12 @@ class SearchViewModel(private val movieUseCase: MovieUseCase): ViewModel() {
 
     @ExperimentalCoroutinesApi
     val resultSearch = queryBroadcastChannel.asFlow()
-            .debounce(300)
-            .distinctUntilChanged()
-            .filter {
-                it.trim().isNotEmpty()
-            }
-            .flatMapLatest {
-                movieUseCase.getMovieSearch(it)
-            }.asLiveData()
+        .debounce(300)
+        .distinctUntilChanged()
+        .filter {
+            it.trim().isNotEmpty()
+        }
+        .flatMapLatest {
+            movieUseCase.getMovieSearch(it)
+        }.asLiveData()
 }

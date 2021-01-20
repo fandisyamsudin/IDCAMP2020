@@ -1,15 +1,10 @@
 package com.idcamp2020.made.ui.home
 
-import android.app.SearchManager
-import android.content.Context
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.view.iterator
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -22,7 +17,6 @@ import com.idcamp2020.made.core.ui.MovieAdapter
 import com.idcamp2020.made.core.utils.SortUtils
 import com.idcamp2020.made.databinding.FragmentHomeBinding
 import com.idcamp2020.made.ui.detail.DetailFragment.Companion.EXTRA_MOVIE
-import es.dmoral.toasty.Toasty
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -34,13 +28,14 @@ class HomeFragment : Fragment() {
     private val homeViewModel: HomeViewModel by viewModel()
     private lateinit var movieAdapter: MovieAdapter
     private lateinit var searchView: SearchView
+
     @FlowPreview
     private val searchViewModel: SearchViewModel by viewModel()
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         _fragmentHomeBinding = FragmentHomeBinding.inflate(inflater, container, false)
         val toolbar: Toolbar = activity?.findViewById<View>(R.id.toolbar) as Toolbar
@@ -109,7 +104,7 @@ class HomeFragment : Fragment() {
             adapter = movieAdapter
         }
 
-        movieAdapter.onItemClick = {selectedData ->
+        movieAdapter.onItemClick = { selectedData ->
             val mBundle = Bundle()
             mBundle.putParcelable(EXTRA_MOVIE, selectedData)
             view?.findNavController()?.navigate(R.id.action_nav_home_to_nav_detail, mBundle)
@@ -142,24 +137,24 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun showError(state: Boolean){
-        if (state){
+    private fun showError(state: Boolean) {
+        if (state) {
             binding?.errorMovie?.main?.visibility = View.VISIBLE
         } else {
             binding?.errorMovie?.main?.visibility = View.GONE
         }
     }
 
-    private fun showProgressBar(state: Boolean){
-        if (state){
+    private fun showProgressBar(state: Boolean) {
+        if (state) {
             binding?.pbMovie?.visibility = View.VISIBLE
         } else {
             binding?.pbMovie?.visibility = View.GONE
         }
     }
 
-    private fun showRecyclerView(state: Boolean){
-        if (state){
+    private fun showRecyclerView(state: Boolean) {
+        if (state) {
             binding?.rvMovie?.visibility = View.VISIBLE
         } else {
             binding?.rvMovie?.visibility = View.GONE
