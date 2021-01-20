@@ -1,6 +1,5 @@
 package com.idcamp2020.made.ui.detail
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
@@ -20,7 +19,7 @@ class DetailFragment : Fragment() {
 
     private var _fragmentDetailBinding: FragmentDetailBinding? = null
     private val binding get() = _fragmentDetailBinding
-    private val detailViewodel: DetailViewModel by viewModel()
+    private val detailViewModel: DetailViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,7 +79,7 @@ class DetailFragment : Fragment() {
 
             binding?.btnFavorite?.setOnClickListener {
                 favoriteState = !favoriteState
-                detailViewodel.setMovieFavorite(movie, favoriteState)
+                detailViewModel.setMovieFavorite(movie, favoriteState)
                 setFavoriteStatus(favoriteState)
             }
         }

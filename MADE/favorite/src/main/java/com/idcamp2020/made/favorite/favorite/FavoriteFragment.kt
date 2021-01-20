@@ -47,7 +47,7 @@ class FavoriteFragment : Fragment() {
 
     private fun initRecyclerView() {
         movieAdapter = MovieAdapter()
-        favoriteViewModel.getMovieFavorite(SortUtils.RANDOM).observe(viewLifecycleOwner, showLayoutObserver)
+        favoriteViewModel.getMovieFavorite(SortUtils.NEWEST).observe(viewLifecycleOwner, showLayoutObserver)
 
         binding?.rvFavorite?.apply {
             layoutManager = LinearLayoutManager(context)
@@ -63,18 +63,19 @@ class FavoriteFragment : Fragment() {
     }
 
     private val showLayoutObserver = Observer<List<Movie>> {
-        if (it != null) {
+        if (it.isNotEmpty()) {
             showProgressBar()
             showError(false)
             showRecyclerView(true)
-            movieAdapter.apply {
-                setData(it)
-                notifyDataSetChanged()
-            }
         } else {
             showProgressBar()
             showError(true)
             showRecyclerView(false)
+        }
+
+        movieAdapter.apply {
+            setData(it)
+            notifyDataSetChanged()
         }
     }
 

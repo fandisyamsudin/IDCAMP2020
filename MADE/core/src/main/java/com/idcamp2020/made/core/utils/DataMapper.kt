@@ -33,7 +33,7 @@ object DataMapper {
                 it.overview,
                 it.posterPath,
                 it.backdropPath,
-                isFavorite = false
+                isFavorite = it.isFavorite
             )
         }
     }
