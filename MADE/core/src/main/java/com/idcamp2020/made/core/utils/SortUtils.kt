@@ -4,16 +4,12 @@ import androidx.sqlite.db.SimpleSQLiteQuery
 
 object SortUtils {
     const val NEWEST = "Newest"
-    const val RANDOM = "Random"
 
     fun getSortedMovie(query: String): SimpleSQLiteQuery {
         val sorted = StringBuilder().append("SELECT * FROM table_favorite ")
         when (query) {
             NEWEST -> {
                 sorted.append("ORDER BY release_date DESC")
-            }
-            RANDOM -> {
-                sorted.append("ORDER BY RANDOM()")
             }
         }
         return SimpleSQLiteQuery(sorted.toString())
@@ -25,11 +21,7 @@ object SortUtils {
             NEWEST -> {
                 sorted.append("ORDER BY release_date DESC")
             }
-            RANDOM -> {
-                sorted.append("ORDER BY RANDOM()")
-            }
         }
         return SimpleSQLiteQuery(sorted.toString())
     }
-
 }

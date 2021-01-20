@@ -9,6 +9,7 @@ import com.idcamp2020.made.core.BuildConfig
 import com.idcamp2020.made.core.databinding.ItemMovieBinding
 import com.idcamp2020.made.core.domain.model.Movie
 import com.idcamp2020.made.core.utils.DiffUtils
+import com.idcamp2020.made.core.utils.loadImageUrl
 
 class MovieAdapter: RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     private var listData = ArrayList<Movie>()
@@ -49,10 +50,8 @@ class MovieAdapter: RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                 tvTitle.text = movie.title
                 tvRelease.text = movie.releaseDate
                 tvVote.text = movie.voteAverage.toString()
-                Glide.with(itemView.context)
-                    .load(BuildConfig.IMAGE_URL + movie.posterPath)
-                    .dontTransform()
-                    .into(ivPoster)
+
+                loadImageUrl(ivPoster, movie.posterPath)
             }
         }
 

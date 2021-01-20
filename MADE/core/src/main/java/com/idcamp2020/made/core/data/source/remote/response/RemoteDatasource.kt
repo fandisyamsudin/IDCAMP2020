@@ -15,7 +15,7 @@ class RemoteDataSource(private val apiService: ApiService) {
     suspend fun getMovies(): Flow<ApiResponse<List<MovieResponse>>> {
         return flow {
             try {
-                val response = apiService.getMovieResponse(BuildConfig.API_KEY)
+                val response = apiService.getMovieResponse(BuildConfig.API_KEY, "en-US", 2)
                 val movieArray = response.results
                 if (movieArray.isNotEmpty()) {
                     emit(ApiResponse.Success(response.results))

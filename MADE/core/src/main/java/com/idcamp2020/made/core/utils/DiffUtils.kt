@@ -46,9 +46,4 @@ class DiffUtils(private val oldList: List<Movie>,
                 && backdropPath == backdropPathNew
                 && isFavorite == isFavoriteNew
     }
-/*
-    @Nullable
-    override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any? {
-        return super.getChangePayload(oldItemPosition, newItemPosition)
-    } */
 }

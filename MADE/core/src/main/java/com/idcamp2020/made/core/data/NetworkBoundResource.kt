@@ -5,7 +5,6 @@ import kotlinx.coroutines.flow.*
 
 
 abstract class NetworkBoundResource<ResultType, RequestType> {
-
     private var result: Flow<Resource<ResultType>> = flow {
         emit(Resource.Loading())
         val dbSource = loadFromDB().first()
@@ -16,30 +15,30 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
                     saveCallResult(apiResponse.data)
                     emitAll(loadFromDB().map {
                         Resource.Success(
-                                it
+                            it
                         )
                     })
                 }
                 is ApiResponse.Empty -> {
                     emitAll(loadFromDB().map {
                         Resource.Success(
-                                it
+                            it
                         )
                     })
                 }
                 is ApiResponse.Error -> {
                     onFetchFailed()
                     emit(
-                            Resource.Error<ResultType>(
-                                    apiResponse.errorMessage
-                            )
+                        Resource.Error<ResultType>(
+                            apiResponse.errorMessage
+                        )
                     )
                 }
             }
         } else {
             emitAll(loadFromDB().map {
                 Resource.Success(
-                        it
+                    it
                 )
             })
         }

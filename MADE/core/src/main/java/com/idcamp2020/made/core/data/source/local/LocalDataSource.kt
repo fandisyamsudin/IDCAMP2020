@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.flow.flowOn
 
 class LocalDataSource(private val movieDao: MovieDao) {
-
     fun getAllMovie(query: String): Flow<List<MovieEntity>> {
         val queryDao = SortUtils.getSortedMovie(query)
         return movieDao.getMovieEntity(queryDao)
@@ -20,7 +19,9 @@ class LocalDataSource(private val movieDao: MovieDao) {
         return movieDao.getMovieFavorite(queryDao)
     }
 
-    suspend fun insertMovieFavorite(movies: List<MovieEntity>) = movieDao.insertMovieFavorite(movies)
+    suspend fun insertMovieFavorite(movies: List<MovieEntity>) {
+        return movieDao.insertMovieFavorite(movies)
+    }
 
     fun setMovieFavorite(movie: MovieEntity, newState: Boolean) {
         movie.isFavorite = newState
@@ -29,7 +30,7 @@ class LocalDataSource(private val movieDao: MovieDao) {
 
     fun getMovieSearch(query: String): Flow<List<MovieEntity>> {
         return movieDao.getMovieSearch(query)
-                .flowOn(Dispatchers.Default)
-                .conflate()
+            .flowOn(Dispatchers.Default)
+            .conflate()
     }
 }
