@@ -4,6 +4,7 @@ import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
@@ -21,6 +22,7 @@ import com.idcamp2020.made.core.ui.MovieAdapter
 import com.idcamp2020.made.core.utils.SortUtils
 import com.idcamp2020.made.databinding.FragmentHomeBinding
 import com.idcamp2020.made.ui.detail.DetailFragment.Companion.EXTRA_MOVIE
+import es.dmoral.toasty.Toasty
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -43,22 +45,24 @@ class HomeFragment : Fragment() {
         _fragmentHomeBinding = FragmentHomeBinding.inflate(inflater, container, false)
         val toolbar: Toolbar = activity?.findViewById<View>(R.id.toolbar) as Toolbar
         (activity as AppCompatActivity?)?.setSupportActionBar(toolbar)
-        setHasOptionsMenu(true)
-        searchView = (activity as MainActivity).findViewById(R.id.search_view)
         return binding?.root
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-
     }
 
     @ExperimentalCoroutinesApi
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.main, menu)
+        searchView = (activity as MainActivity).findViewById(R.id.search_view)
         searchView = menu.findItem(R.id.action_search).actionView as SearchView
+        initSearch()
+    }
+
+    @ExperimentalCoroutinesApi
+    private fun initSearch() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true

@@ -18,7 +18,6 @@ import com.rbddevs.splashy.Splashy
 import es.dmoral.toasty.Toasty
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {

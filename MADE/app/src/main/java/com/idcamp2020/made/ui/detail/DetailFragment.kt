@@ -1,14 +1,17 @@
 package com.idcamp2020.made.ui.detail
 
 import android.os.Bundle
+import android.system.Os.remove
 import android.view.*
-import androidx.fragment.app.Fragment
+import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.bumptech.glide.Glide
+import androidx.fragment.app.Fragment
 import com.idcamp2020.made.R
 import com.idcamp2020.made.core.BuildConfig
 import com.idcamp2020.made.core.domain.model.Movie
+import com.idcamp2020.made.core.utils.loadImageUrl
 import com.idcamp2020.made.databinding.FragmentDetailBinding
+import es.dmoral.toasty.Toasty
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailFragment : Fragment() {
@@ -41,15 +44,12 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         bundleData()
     }
 
     private fun bundleData() {
         val detailMovie = arguments?.getParcelable<Movie>(EXTRA_MOVIE)
-        if (detailMovie != null){
-            showDetail(detailMovie)
-        }
+        if (detailMovie != null) showDetail(detailMovie)
     }
 
     override fun onDestroy() {
@@ -63,16 +63,8 @@ class DetailFragment : Fragment() {
             tvReleaseDetail.text = movie.releaseDate
             tvVoteDetail.text = movie.voteAverage.toString()
             tvOverviewDetail.text = movie.overview
-
-            Glide.with(this@DetailFragment)
-                    .load(BuildConfig.IMAGE_URL + movie.posterPath)
-                    .dontTransform()
-                    .into(ivPosterDetail)
-
-            Glide.with(this@DetailFragment)
-                    .load(BuildConfig.IMAGE_URL + movie.backdropPath)
-                    .dontTransform()
-                    .into(ivBackdropDetail)
+            loadImageUrl(ivBackdropDetail, movie.backdropPath)
+            loadImageUrl(ivPosterDetail, movie.posterPath)
 
             var favoriteState = movie.isFavorite
             setFavoriteStatus(favoriteState)
@@ -92,16 +84,16 @@ class DetailFragment : Fragment() {
                     ContextCompat.getDrawable(
                         it,
                         R.drawable.ic_favorite
-                        )
-                    }
-                )
+                    )
+                }
+            )
         } else {
             binding?.btnFavorite?.setImageDrawable(
                 context?.let {
                     ContextCompat.getDrawable(
                         it,
                         R.drawable.ic_baseline_favorite_border
-                        )
+                    )
                 }
             )
         }
