@@ -14,7 +14,7 @@ import com.idcamp2020.made.core.data.Resource
 import com.idcamp2020.made.core.domain.model.Movie
 import com.idcamp2020.made.core.ui.MovieAdapter
 import com.idcamp2020.made.core.utils.SortUtils
-import com.idcamp2020.made.favorite.R
+import com.idcamp2020.made.R
 import com.idcamp2020.made.favorite.databinding.FragmentFavoriteBinding
 import com.idcamp2020.made.favorite.di.favoriteModule
 import com.idcamp2020.made.ui.detail.DetailFragment
@@ -55,11 +55,10 @@ class FavoriteFragment : Fragment() {
             adapter = movieAdapter
         }
 
-        // Masih Error di sini !!!
          movieAdapter.onItemClick = {selectedData ->
             val mBundle = Bundle()
             mBundle.putParcelable(DetailFragment.EXTRA_MOVIE, selectedData)
-            view?.findNavController()?.navigate(R.id.action_favoriteFragment_to_detailFragment, mBundle)
+            view?.findNavController()?.navigate(R.id.action_nav_favorite_to_nav_detail, mBundle)
         }
     }
 

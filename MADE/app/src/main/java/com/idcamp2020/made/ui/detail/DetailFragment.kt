@@ -2,10 +2,8 @@ package com.idcamp2020.made.ui.detail
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.idcamp2020.made.R
@@ -30,6 +28,16 @@ class DetailFragment : Fragment() {
     ): View? {
         _fragmentDetailBinding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding?.root
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        menu.clear()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
