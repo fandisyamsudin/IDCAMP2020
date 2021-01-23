@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
     private fun setSplashy() {
         Splashy(this)
             .setLogo(R.drawable.ic_imdb)
-            .setTitle(resources.getString(R.string.app_name))
+            .setTitle(resources.getString(R.string.popular_movie))
             .setTitleColor(R.color.secondary_yellow)
             .setTitleSize(24F)
             .setLogoWHinDp(70, 70)
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             .setFullScreen(true)
             .showLogo(true)
             .showProgress(false)
-            .setDuration(5000)
+            .setDuration(3000)
             .setAnimation(Splashy.Animation.GROW_LOGO_FROM_CENTER, 800)
             .show()
 
