@@ -7,7 +7,7 @@
 
     <ImageView
         android:id="@+id/iv_error_movie"
-        android:layout_width="150dp"
+        android:layout_width="@dimen/img_width"
         android:layout_height="150dp"
         android:src="@drawable/ic_not_found"
         android:contentDescription="@string/error"

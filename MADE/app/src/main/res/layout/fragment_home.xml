@@ -9,8 +9,8 @@
 
     <ProgressBar
         android:id="@+id/pb_movie"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/pb_size"
+        android:layout_height="@dimen/pb_size"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

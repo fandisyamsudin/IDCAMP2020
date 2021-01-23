@@ -15,8 +15,8 @@
             android:id="@+id/cv_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="10dp"
-            app:cardMaxElevation="10dp"
+            app:cardElevation="@dimen/elevation"
+            app:cardMaxElevation="@dimen/elevation"
             app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
@@ -26,7 +26,7 @@
                 <ImageView
                     android:id="@+id/iv_backdrop_detail"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="@dimen/backdrop_heigth"
                     android:contentDescription="@string/poster"
                     android:scaleType="centerCrop"
                     android:src="@drawable/poster_crimes" />
@@ -38,9 +38,9 @@
                     <TextView
                         android:id="@+id/tv_title_detail"
                         style="@style/TextContent.Title.White"
-                        android:layout_width="250dp"
+                        android:layout_width="@dimen/width_tv"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="143dp"
+                        android:layout_marginStart="@dimen/margin_143dp"
                         android:layout_marginEnd="8dp"
                         android:text="@string/title"
                         android:textAlignment="textEnd"
@@ -56,9 +56,9 @@
                         style="@style/TextContent.Subtitle.White"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginStart="@dimen/margin_16dp"
+                        android:layout_marginEnd="@dimen/margin_16dp"
+                        android:layout_marginBottom="@dimen/margin_16dp"
                         android:text="@string/release"
                         android:textAlignment="textEnd"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,9 +67,9 @@
                     <TextView
                         android:id="@+id/tv_vote_detail"
                         style="@style/TextContent.Subtitle.White"
-                        android:layout_width="42dp"
-                        android:layout_height="44dp"
-                        android:layout_margin="16dp"
+                        android:layout_width="@dimen/width_vote"
+                        android:layout_height="@dimen/height_vote"
+                        android:layout_margin="@dimen/margin_16dp"
                         android:background="@drawable/background_vote"
                         android:gravity="center"
                         android:text="@string/vote"
@@ -82,23 +82,23 @@
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/iv_poster_detail"
-            android:layout_width="115dp"
-            android:layout_height="180dp"
-            android:layout_margin="16dp"
+            android:layout_width="@dimen/poster_width"
+            android:layout_height="@dimen/poster_height"
+            android:layout_margin="@dimen/margin_16dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/poster"
-            android:elevation="10dp"
+            android:elevation="@dimen/elevation"
             android:src="@drawable/poster_crimes"
             app:layout_constraintBottom_toBottomOf="@+id/cv_detail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cv_detail"
-            app:riv_corner_radius="8dp" />
+            app:riv_corner_radius="@dimen/elevation" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/margin_16dp"
             android:backgroundTint="@color/secondary_yellow"
             android:src="@drawable/ic_baseline_favorite_border"
             android:contentDescription="@string/favorite"
@@ -110,7 +110,7 @@
             style="@style/TextContent.Title.White"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/margin_16dp"
             android:text="@string/overview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -121,7 +121,7 @@
             style="@style/TextContent.Subtitle.White"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/margin_16dp"
             android:text="@string/dummy_overview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
