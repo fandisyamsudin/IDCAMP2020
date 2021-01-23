@@ -26,7 +26,7 @@
                 <ImageView
                     android:id="@+id/iv_backdrop_detail"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/backdrop_heigth"
+                    android:layout_height="@dimen/backdrop_height"
                     android:contentDescription="@string/poster"
                     android:scaleType="centerCrop"
                     android:src="@drawable/poster_crimes" />
