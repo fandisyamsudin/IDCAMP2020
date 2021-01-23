@@ -15,15 +15,10 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     fun setData(newListData: List<Movie>?) {
         if (newListData.isNullOrEmpty()) return
-        val diffUtilsCallback = DiffUtils(listData, newListData)
-        val diffUtilsResult = DiffUtil.calculateDiff(diffUtilsCallback)
-
         with(listData) {
             clear()
             addAll(newListData)
         }
-
-        diffUtilsResult.dispatchUpdatesTo(this)
     }
 
     override fun onCreateViewHolder(
