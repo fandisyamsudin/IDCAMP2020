@@ -1,18 +1,5 @@
 <resources>
-    <string name="app_name">MADE</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">IMDB</string>
-    <string name="nav_header_subtitle">www.imdb.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_favorite">Favorite</string>
-    <string name="action_search">Search</string>
-    <string name="title_favorite">Module Title</string>
     <string name="poster">poster</string>
     <string name="title">The Crimes</string>
     <string name="release">20-12-2002</string>

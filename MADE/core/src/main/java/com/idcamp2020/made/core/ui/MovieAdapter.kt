@@ -2,11 +2,9 @@ package com.idcamp2020.made.core.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.idcamp2020.made.core.databinding.ItemMovieBinding
 import com.idcamp2020.made.core.domain.model.Movie
-import com.idcamp2020.made.core.utils.DiffUtils
 import com.idcamp2020.made.core.utils.loadImageUrl
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {

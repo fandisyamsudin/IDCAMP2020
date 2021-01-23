@@ -6,6 +6,7 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="img_width">150dp</dimen>
+    <dimen name="img_height">150dp</dimen>
     <dimen name="pb_size">80dp</dimen>
     <dimen name="elevation">10dp</dimen>
     <dimen name="backdrop_height">300dp</dimen>

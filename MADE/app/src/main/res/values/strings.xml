@@ -34,4 +34,5 @@
     <string name="title_splash">Welcome Guys</string>
     <string name="removed">Removed</string>
     <string name="add_favorite">Add to Favorite</string>
+    <string name="setting">Not Available</string>
 </resources>
