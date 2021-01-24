@@ -16,10 +16,10 @@ class MovieRepository(
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
 ) : IMovieRepository {
-    override fun getMovie(query: String): Flow<Resource<List<Movie>>> =
+    override fun getMovie(): Flow<Resource<List<Movie>>> =
         object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
             override fun loadFromDB(): Flow<List<Movie>> {
-                return localDataSource.getAllMovie(query).map {
+                return localDataSource.getAllMovie().map {
                     DataMapper.mapEntitiesToDomain(it)
                 }
             }
@@ -38,8 +38,8 @@ class MovieRepository(
             }
         }.asFlow()
 
-    override fun getMovieFavorite(query: String): Flow<List<Movie>> {
-        return localDataSource.getAllMovieFavorite(query).map {
+    override fun getMovieFavorite(): Flow<List<Movie>> {
+        return localDataSource.getAllMovieFavorite().map {
             DataMapper.mapEntitiesToDomain(it)
         }
     }

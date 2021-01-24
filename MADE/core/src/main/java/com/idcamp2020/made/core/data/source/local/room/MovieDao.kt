@@ -7,11 +7,11 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MovieDao {
-    @RawQuery(observedEntities = [MovieEntity::class])
-    fun getMovieEntity(query: SupportSQLiteQuery): Flow<List<MovieEntity>>
+    @Query("SELECT * FROM table_favorite")
+    fun getMovieEntity(): Flow<List<MovieEntity>>
 
-    @RawQuery(observedEntities = [MovieEntity::class])
-    fun getMovieFavorite(query: SupportSQLiteQuery): Flow<List<MovieEntity>>
+    @Query("SELECT * FROM table_favorite WHERE is_favorite = 1")
+    fun getMovieFavorite(): Flow<List<MovieEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovieFavorite(movies: List<MovieEntity>)

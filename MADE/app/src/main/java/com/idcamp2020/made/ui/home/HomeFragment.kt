@@ -14,7 +14,6 @@ import com.idcamp2020.made.R
 import com.idcamp2020.made.core.data.Resource
 import com.idcamp2020.made.core.domain.model.Movie
 import com.idcamp2020.made.core.ui.MovieAdapter
-import com.idcamp2020.made.core.utils.SortUtils
 import com.idcamp2020.made.databinding.FragmentHomeBinding
 import com.idcamp2020.made.ui.detail.DetailFragment.Companion.EXTRA_MOVIE
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -96,7 +95,7 @@ class HomeFragment : Fragment() {
 
     private fun initRecyclerView() {
         movieAdapter = MovieAdapter()
-        homeViewModel.getMovie(SortUtils.NEWEST).observe(viewLifecycleOwner, showLayoutObserver)
+        homeViewModel.getMovie().observe(viewLifecycleOwner, showLayoutObserver)
 
         binding?.rvMovie?.apply {
             layoutManager = LinearLayoutManager(context)

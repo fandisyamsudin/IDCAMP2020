@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.idcamp2020.made.R
 import com.idcamp2020.made.core.domain.model.Movie
 import com.idcamp2020.made.core.ui.MovieAdapter
-import com.idcamp2020.made.core.utils.SortUtils
 import com.idcamp2020.made.favorite.databinding.FragmentFavoriteBinding
 import com.idcamp2020.made.favorite.di.favoriteModule
 import com.idcamp2020.made.ui.detail.DetailFragment
@@ -43,7 +42,7 @@ class FavoriteFragment : Fragment() {
 
     private fun initRecyclerView() {
         movieAdapter = MovieAdapter()
-        favoriteViewModel.getMovieFavorite(SortUtils.NEWEST)
+        favoriteViewModel.getMovieFavorite()
             .observe(viewLifecycleOwner, showLayoutObserver)
 
         binding?.rvFavorite?.apply {

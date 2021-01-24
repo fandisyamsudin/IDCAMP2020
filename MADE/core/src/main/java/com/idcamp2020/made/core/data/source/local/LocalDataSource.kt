@@ -2,21 +2,18 @@ package com.idcamp2020.made.core.data.source.local
 
 import com.idcamp2020.made.core.data.source.local.entity.MovieEntity
 import com.idcamp2020.made.core.data.source.local.room.MovieDao
-import com.idcamp2020.made.core.utils.SortUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.flow.flowOn
 
 class LocalDataSource(private val movieDao: MovieDao) {
-    fun getAllMovie(query: String): Flow<List<MovieEntity>> {
-        val queryDao = SortUtils.getSortedMovie(query)
-        return movieDao.getMovieEntity(queryDao)
+    fun getAllMovie(): Flow<List<MovieEntity>> {
+        return movieDao.getMovieEntity()
     }
 
-    fun getAllMovieFavorite(query: String): Flow<List<MovieEntity>> {
-        val queryDao = SortUtils.getSortedMovieFavorite(query)
-        return movieDao.getMovieFavorite(queryDao)
+    fun getAllMovieFavorite(): Flow<List<MovieEntity>> {
+        return movieDao.getMovieFavorite()
     }
 
     suspend fun insertMovieFavorite(movies: List<MovieEntity>) {

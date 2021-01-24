@@ -6,12 +6,12 @@ import com.idcamp2020.made.core.domain.repository.IMovieRepository
 import kotlinx.coroutines.flow.Flow
 
 class MovieInteractor(private val iMovieRepository: IMovieRepository) : MovieUseCase {
-    override fun getMovie(query: String): Flow<Resource<List<Movie>>> {
-        return iMovieRepository.getMovie(query)
+    override fun getMovie(): Flow<Resource<List<Movie>>> {
+        return iMovieRepository.getMovie()
     }
 
-    override fun getMovieFavorite(query: String): Flow<List<Movie>> {
-        return iMovieRepository.getMovieFavorite(query)
+    override fun getMovieFavorite(): Flow<List<Movie>> {
+        return iMovieRepository.getMovieFavorite()
     }
 
     override fun getMovieSearch(query: String): Flow<List<Movie>> {

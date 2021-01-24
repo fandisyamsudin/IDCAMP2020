@@ -5,9 +5,9 @@ import com.idcamp2020.made.core.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface MovieUseCase {
-    fun getMovie(query: String): Flow<Resource<List<Movie>>>
+    fun getMovie(): Flow<Resource<List<Movie>>>
 
-    fun getMovieFavorite(query: String): Flow<List<Movie>>
+    fun getMovieFavorite(): Flow<List<Movie>>
 
     fun getMovieSearch(query: String): Flow<List<Movie>>
 
