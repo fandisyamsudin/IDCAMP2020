@@ -107,7 +107,7 @@
 
         <TextView
             android:id="@+id/tv_title_overview_detail"
-            style="@style/TextContent.Title.White"
+            style="@style/TextContent.Title.Yellow"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_16dp"

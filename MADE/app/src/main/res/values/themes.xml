@@ -42,6 +42,10 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="TextContent.Title.Yellow">
+        <item name="android:textColor">@color/secondary_yellow</item>
+    </style>
+
     <style name="TextContent.Subtitle">
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/hymala</item>

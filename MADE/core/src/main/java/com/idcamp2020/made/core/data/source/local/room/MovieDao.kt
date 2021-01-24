@@ -1,7 +1,6 @@
 package com.idcamp2020.made.core.data.source.local.room
 
 import androidx.room.*
-import androidx.sqlite.db.SupportSQLiteQuery
 import com.idcamp2020.made.core.data.source.local.entity.MovieEntity
 import kotlinx.coroutines.flow.Flow
 
