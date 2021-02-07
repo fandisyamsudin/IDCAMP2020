@@ -19,65 +19,60 @@
             app:cardMaxElevation="@dimen/elevation"
             app:layout_constraintTop_toTopOf="parent">
 
-            <FrameLayout
+            <ImageView
+                android:id="@+id/iv_backdrop_detail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="@dimen/backdrop_height"
+                android:contentDescription="@string/poster"
+                android:scaleType="centerCrop"
+                android:src="@drawable/poster_crimes" />
 
-                <ImageView
-                    android:id="@+id/iv_backdrop_detail"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/backdrop_height"
-                    android:contentDescription="@string/poster"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/poster_crimes" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tv_title_detail"
+                    style="@style/TextContent.Title.White"
+                    android:layout_width="@dimen/width_tv"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_143dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/title"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.946"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.789" />
 
-                    <TextView
-                        android:id="@+id/tv_title_detail"
-                        style="@style/TextContent.Title.White"
-                        android:layout_width="@dimen/width_tv"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_143dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/title"
-                        android:textAlignment="textEnd"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.946"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.789" />
+                <TextView
+                    android:id="@+id/tv_release_detail"
+                    style="@style/TextContent.Subtitle.White"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16dp"
+                    android:layout_marginEnd="@dimen/margin_16dp"
+                    android:layout_marginBottom="@dimen/margin_16dp"
+                    android:text="@string/release"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
-                    <TextView
-                        android:id="@+id/tv_release_detail"
-                        style="@style/TextContent.Subtitle.White"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_16dp"
-                        android:layout_marginEnd="@dimen/margin_16dp"
-                        android:layout_marginBottom="@dimen/margin_16dp"
-                        android:text="@string/release"
-                        android:textAlignment="textEnd"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                <TextView
+                    android:id="@+id/tv_vote_detail"
+                    style="@style/TextContent.Subtitle.White"
+                    android:layout_width="@dimen/width_vote"
+                    android:layout_height="@dimen/height_vote"
+                    android:layout_margin="@dimen/margin_16dp"
+                    android:background="@drawable/background_vote"
+                    android:gravity="center"
+                    android:text="@string/vote"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/tv_vote_detail"
-                        style="@style/TextContent.Subtitle.White"
-                        android:layout_width="@dimen/width_vote"
-                        android:layout_height="@dimen/height_vote"
-                        android:layout_margin="@dimen/margin_16dp"
-                        android:background="@drawable/background_vote"
-                        android:gravity="center"
-                        android:text="@string/vote"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </FrameLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
         <com.makeramen.roundedimageview.RoundedImageView
